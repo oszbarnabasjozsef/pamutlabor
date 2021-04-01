@@ -19,6 +19,7 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+          <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -100,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-
+<p>Ez valami</p>
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
@@ -119,6 +120,7 @@
                             <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
                                 Sponsor
                             </a>
+
                         </div>
                     </div>
 

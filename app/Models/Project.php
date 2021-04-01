@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Owner;
+use App\Models\Status;
 
 class Project extends Model
 {
@@ -14,7 +16,7 @@ class Project extends Model
     public function owner(){
       return this->belongsTo(Owner::class);
     }
-    public function owner(){
+    public function status(){
       return this->belongsTo(Status::class);
     }
 }
