@@ -9,9 +9,10 @@ class Status extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $table='statuses';
 
     public function projects(){
-      return $this->hasMany(Project::class)
+      return $this->hasMany(Project::class);
     }
 }

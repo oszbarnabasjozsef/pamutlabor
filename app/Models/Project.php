@@ -11,6 +11,7 @@ class Project extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $table='projects';
 
     public function owner(){

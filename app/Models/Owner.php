@@ -9,9 +9,10 @@ class Owner extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
     protected $table='owners';
 
     public function projects(){
-      return $this->hasMany(Project::class)
+      return $this->hasOne(Project::class);
     }
 }

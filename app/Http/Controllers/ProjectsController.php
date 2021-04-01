@@ -18,5 +18,24 @@ class ProjectsController extends Controller
       return view('projects.index',['projects' => $projects]);
     }
 
-    
+    public function create(){
+      $statuses = status::all();
+      return view('projects.create',['statuses' => $statuses]);
+    }
+
+    public function store(Request $request){
+      $owner = new Owner;
+      $owner->name = $request->name;
+      $owner->email = $request->email;
+      $owner->save();
+
+      $project = new Project;
+      $project->title = $request->title;
+      $project->description = $request->description;
+      $project->status_id = $request->status;
+
+      $owner->projects()->save($project);
+
+      return ProjectsController::index();
+    }
 }
