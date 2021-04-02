@@ -21,6 +21,9 @@ Route::get('/projects', [ProjectsController::class, 'index']);
 Route::get('/create', [ProjectsController::class, 'create']);
 Route::post('store', [ProjectsController::class, 'store']);
 
+//Show the project details
+Route::get('/show/{pid}', [ProjectsController::class, 'show']);
+
 // Update an exists project
 Route::get('/edit/{pid}', [ProjectsController::class, 'edit']);
 Route::post('update', [ProjectsController::class, 'update']);

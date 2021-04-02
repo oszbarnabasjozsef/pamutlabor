@@ -5,6 +5,12 @@ body {
   display: flex;
   flex-direction: column;
 }
+h1{
+  text-align: center;
+}
+.center{
+  text-align: center;
+}
 .container {
   flex: 1 0 auto;
   padding: 10px;

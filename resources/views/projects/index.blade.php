@@ -21,6 +21,8 @@
             </tr>
             <tr>
               <td colspan="2">
+                <!--Show details-->
+                <button type="button" name="show" class="btn btn-success"><a href={{"show/".$project->pid }}>Bővebben</a></button>
                 <!--Edit an element-->
                 <button type="button" name="edit" class="btn btn-primary"><a href={{"edit/".$project->pid }}>Szerkesztés</a></button>
                 <!--Delete an element-->

@@ -19,30 +19,28 @@
     <div class="form-group">
       <label for="exampleFormControlSelect1">Example select</label>
       <select name="status" class="form-control" id="exampleFormControlSelect1">
-        <!-- List status selection-->
-        @if(isset($project))
-          @foreach ($project as $project)
-            <option value="{{ $project -> status_id }}">{{ $project -> keys }}</option>
-          @endforeach
-        @else
+        <!-- List status selection, if update the project, set the selected status to the old status -->
         @foreach ($statuses as $status)
-          <option value="{{ $status -> id }}">{{ $status -> keys }}</option>
+          <option value="{{ $status -> id }}" @if(isset($project) && ($status->id==$project[0]->status_id)) selected @endif>{{ $status -> keys }}</option>
         @endforeach
-      @endif
+
       </select>
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Kapcsolattartó neve:</label>
-      <input type="input" name="name" class="form-control" id="exampleFormControlInput1" value="@if(isset($project)){{ $project -> owner_name }}@endif" required="required" minlength="6" maxlength="45">
+      <input type="input" name="name" class="form-control" id="exampleFormControlInput1" value="@if(isset($project)){{ $project[0] -> owner_name }}@endif" required="required" minlength="6" maxlength="45">
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1">Kapcsolattartó Email-címe:</label>
-      <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="@if(isset($project)){{ $project -> email }}@endif" required="required" minlength="6" maxlength="45">
+      <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="@if(isset($project)){{ $project[0] -> email }}@endif" required="required" minlength="6" maxlength="45">
     </div>
     @if(isset($project))
-      <input type="hidden" name="id" class="form-control" id="exampleFormControlInput1"  value="{{ $project -> pid }}">
+      <input type="hidden" name="id" class="form-control" id="exampleFormControlInput1"  value="{{ $project[0] -> pid }}">
     @endif
-    <button type="submit" class="btn btn-primary">Mentés</button>
+    <button type="submit" class="btn btn-success">Mentés</button>
+    @if(isset($project))
+      <button type="button" name="back" class="btn btn-primary"><a href="/">Vissza a projektekhez</a></button>
+    @endif
   </form>
 
 @stop

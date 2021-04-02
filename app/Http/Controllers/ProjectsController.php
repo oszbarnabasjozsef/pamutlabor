@@ -44,6 +44,17 @@ class ProjectsController extends Controller
       return redirect('projects');
     }
 
+    //Show the project details
+    public function show($id){
+     $project = DB::table('projects')
+     ->join('owners', 'owners.id', '=' ,'projects.owner_id')
+     ->join('statuses', 'statuses.id', '=','projects.status_id',)
+     ->select('projects.id as pid','title', 'description', 'owners.name as owner_name', 'email', 'statuses.name as status_name', 'keys')
+       ->where('projects.id', $id)
+       ->get();
+
+     return view('projects.details',['project' => $project]);
+    }
 
 //If arrive an edit request, send back the project that we want change
      public function edit($id){
@@ -53,7 +64,8 @@ class ProjectsController extends Controller
         ->select('projects.id as pid','title', 'description','owners.name as owner_name', 'email', 'statuses.id as status_id', 'statuses.keys')
         ->where('projects.id', $id)
         ->get();
-      return view('projects.create',['project' => $project]);
+        $statuses = Status::all();
+      return view('projects.create',['project' => $project,'statuses'=>$statuses]);
     }
 
 //If arrive an post request, update the project
