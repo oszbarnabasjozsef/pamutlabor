@@ -18,9 +18,11 @@ class ProjectsController extends Controller
         ->join('statuses', 'statuses.id', '=','projects.status_id',)
         ->select('projects.id as pid','title', 'owners.*', 'statuses.*')
         ->simplePaginate(2);
+      $statuses = Status::all();
 
-      return view('projects.index',['projects' => $projects]);
+      return view('projects.index',['projects' => $projects, 'statuses'=>$statuses]);
     }
+
 // Project registration page, return the statuses to list to the form select
     public function create(){
       $statuses = Status::all();

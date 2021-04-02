@@ -9,6 +9,8 @@
     @if(count($projects) == 0)
       <p>Jelenleg nincs egy projekt sem a rendszerben. <b>Szerkesztés/létrehozás</b> menüpontban tudsz létrehozni új projektet.</p>
     @else
+      
+    <!--List the projects-->
     @foreach($projects as $project)
         <table class="table table-borderless table-projects">
           <tbody>

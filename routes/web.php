@@ -14,7 +14,6 @@ use App\Http\Controllers\ProjectsController;
 |
 */
 // Index
-Route::get('/', [ProjectsController::class, 'index']);
 Route::get('/projects', [ProjectsController::class, 'index']);
 
 // Create new project
