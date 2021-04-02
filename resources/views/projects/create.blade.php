@@ -39,7 +39,7 @@
     @endif
     <button type="submit" class="btn btn-success">Mentés</button>
     @if(isset($project))
-      <button type="button" name="back" class="btn btn-primary"><a href="/">Vissza a projektekhez</a></button>
+      <button type="button" name="back" class="btn btn-primary"><a href="/projects">Vissza a projektekhez</a></button>
     @endif
   </form>
 

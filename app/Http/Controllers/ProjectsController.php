@@ -17,7 +17,7 @@ class ProjectsController extends Controller
         ->join('owners', 'owners.id', '=' ,'projects.owner_id')
         ->join('statuses', 'statuses.id', '=','projects.status_id',)
         ->select('projects.id as pid','title', 'owners.*', 'statuses.*')
-        ->simplePaginate(2);
+        ->simplePaginate(10);
       $statuses = Status::all();
 
       return view('projects.index',['projects' => $projects, 'statuses'=>$statuses]);
@@ -79,7 +79,7 @@ class ProjectsController extends Controller
       [$request->title,$request->description,$request->status, $request->name,
       $request->email, $request->id]);
 
-      return ProjectsController::index();
+      return redirect('projects');
     }
 
   // Delete a project and the owner
