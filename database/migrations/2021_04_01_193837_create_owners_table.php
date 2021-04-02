@@ -14,9 +14,9 @@ class CreateOwnersTable extends Migration
     public function up()
     {
         Schema::create('owners', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email');
+          $table->id();
+          $table->string('name',150);
+          $table->string('email',150);
         });
     }
 

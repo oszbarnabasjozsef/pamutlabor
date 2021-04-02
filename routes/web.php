@@ -13,12 +13,17 @@ use App\Http\Controllers\ProjectsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Index
+Route::get('/', [ProjectsController::class, 'index']);
+Route::get('/projects', [ProjectsController::class, 'index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+// Create new project
+Route::get('/create', [ProjectsController::class, 'create']);
 Route::post('store', [ProjectsController::class, 'store']);
 
-Route::get('/projects', [ProjectsController::class, 'index']);
-Route::get('/create', [ProjectsController::class, 'create']);
+// Update an exists project
+Route::get('/edit/{pid}', [ProjectsController::class, 'edit']);
+Route::post('update', [ProjectsController::class, 'update']);
+
+//Delete a project
+Route::get('/delete/{pid}', [ProjectsController::class, 'delete']);

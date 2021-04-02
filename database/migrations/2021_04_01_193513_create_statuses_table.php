@@ -15,8 +15,8 @@ class CreateStatusesTable extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('keys');
-            $table->string('name');
+            $table->string('keys',45);
+            $table->string('name',45);
         });
     }
 

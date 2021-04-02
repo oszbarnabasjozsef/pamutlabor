@@ -1,12 +1,39 @@
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  flex: 1 0 auto;
+  padding: 10px;
+  margin-top: 2%;
+}
 .table-div, .create-form{
-  width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 .table-projects{
   width: 100%;
   border: 1px solid blue;
+  margin: 0;
 }
 .column-projects{
   width: 10%;
+}
+.btn-primary a, .btn-danger a, .btn-success a{
+  color: white;
+}
+.paginator{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+.footer {
+  flex-shrink: 0;
+  min-width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  text-align: center;
 }

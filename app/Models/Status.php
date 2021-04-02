@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Project;
 
+//Status model, one to one connection with Project
 class Status extends Model
 {
     use HasFactory;
@@ -13,6 +15,6 @@ class Status extends Model
     protected $table='statuses';
 
     public function projects(){
-      return $this->hasMany(Project::class);
+      return $this->hasOne(Status::class);
     }
 }
